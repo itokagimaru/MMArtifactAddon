@@ -1,0 +1,6 @@
+name: MMArtifactAddon
+version: '1.0-SNAPSHOT'
+main: io.github.itokagimaru.mMArtifactAddon.MMArtifactAddon
+api-version: '1.21'
+depend:
+  - MythicMobs
