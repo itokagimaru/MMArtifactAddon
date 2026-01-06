@@ -33,7 +33,7 @@ public class SetPdc extends SkillMechanic implements INoTargetSkill {
     ) {
         super(manager, file, line, mlc);
 
-        String rawKey = mlc.getString(new String[]{"key"}, "phase");
+        String rawKey = mlc.getString(new String[]{"key"}, "null");
         this.type = mlc.getString(new String[]{"type"}, "int");
         this.rawValue = mlc.getString(new String[]{"value"}, "0");
 
@@ -46,17 +46,11 @@ public class SetPdc extends SkillMechanic implements INoTargetSkill {
             return new NamespacedKey(split[0], split[1]);
         }
         return new NamespacedKey(
-                Bukkit.getPluginManager().getPlugin("ArtifactMM"),
+                "artifact",
                 rawKey
         );
     }
 
-    /**
-     * ✅ SkillMechanic ではなく
-     * ✅ INoTargetSkill の cast が呼ばれる
-     *
-     * @return
-     */
     @Override
     public SkillResult cast(SkillMetadata data) {
         Entity entity = BukkitAdapter.adapt(data.getCaster().getEntity());
